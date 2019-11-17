@@ -27,12 +27,12 @@ class SignUp extends React.Component {
         }
 
         try {
+            // Creates a new user account associated with email and password
             const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
             await createUserProfileDocument(user, { displayName });
 
             // To clear form
-
             this.setState({
                 displayName: '',
                 email: '',
