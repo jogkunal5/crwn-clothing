@@ -53,6 +53,13 @@ class App extends React.Component {
         {/* Rendering Header component */}
         <Header></Header>
 
+        {/*
+          The <Switch /> component will only render the first route that matches/includes the path. 
+          Once it finds the first route that matches the path, it will not look for any other matches.
+          Not only that, it allows for nested routes to work properly, which is something that <Router /> 
+          will not be able to handle
+        */}
+
         <Switch>
 
           {/* If the route is "/" then render HomePage component" */}
@@ -62,10 +69,12 @@ class App extends React.Component {
           <Route path='/shop' component={ShopPage} />
 
           {/** 
-            If the route is "/signin" then check if user logged in or not by checking this.props.currentUser property.
+            If the route is "/signin" then check if user logged in or not by checking this.props.currentUser 
+            property.
             If this.props.currentUser has value then redirect to home page i.e. "/" component.
             If this.props.currentUser is null then redirect to SignInAndSignUp component
           */}
+
           <Route exact path='/signin'
             render={() =>
               this.props.currentUser ?

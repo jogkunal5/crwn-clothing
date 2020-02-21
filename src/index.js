@@ -6,7 +6,9 @@ import store from './redux/store';
 import './index.css';
 import App from './App';
 
-// BrowserRouter is a component which gives the functionality of routing to the application.
+// <BrowserRouter> is a component which gives the functionality of routing to the application.
+
+// <Provider> is a component which gives us the access of store and the reducers
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>

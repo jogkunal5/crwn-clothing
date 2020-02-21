@@ -5,6 +5,7 @@
 
 import { combineReducers } from 'redux';
 import userReducer from './user/user.reducer';
+import cartReducer from './cart/cart.reducer';
 
 /**
  * combineReducers(): Turns an object whose values are different reducer functions, into a single reducer function.
@@ -12,5 +13,6 @@ import userReducer from './user/user.reducer';
  * whose keys correspond to the keys of the passed reducer functions.
  */
 export default combineReducers({
-    user: userReducer
+    user: userReducer,
+    cart: cartReducer
 });
