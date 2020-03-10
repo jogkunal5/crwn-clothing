@@ -8,7 +8,8 @@ import App from './App';
 
 // <BrowserRouter> is a component which gives the functionality of routing to the application.
 
-// <Provider> is a component which gives us the access of store and the reducers
+// <Provider> is a component which gives us the access of store and the reducers. <Provider> is a parent of
+// of everything inside our application 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
