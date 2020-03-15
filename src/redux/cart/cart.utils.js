@@ -16,3 +16,24 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     return [...cartItems, { ...cartItemToAdd, quantity: 1 }]
 
 }
+
+
+export const removeItemFromCart = (cartItems, cartItemToRemove) => {
+    // finding whether cart item are already exist by checking its id
+    const existingCartItem = cartItems.find(
+        cartItem => cartItem.id === cartItemToRemove.id
+    );
+
+    // if quantity of cart item is only 1 then remove that
+    if (existingCartItem.quantity === 1) {
+        return cartItems.filter(cartItem =>
+            cartItem.id !== cartItemToRemove.id
+        )
+    }
+
+    // if quantity of cart item is more than 1 then just do the decrement
+    return cartItems.map(cartItem =>
+        cartItem.id === cartItemToRemove.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+    );
+
+}
