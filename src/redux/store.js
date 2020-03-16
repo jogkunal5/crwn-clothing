@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import { persistStore } from 'redux-persist'; // it allows browser to cache or store depending on configuration options
 import logger from 'redux-logger';
 import rootReducers from './root-reducer';
 
@@ -15,7 +16,11 @@ import rootReducers from './root-reducer';
  */
 
 const middlewares = [logger];
-const store = createStore(rootReducers, applyMiddleware(...middlewares));
 
-export default store;
+export const store = createStore(rootReducers, applyMiddleware(...middlewares));
+
+// persister is a persistent version of store and using this and store we create new provider thats wrapping our application
+export const persistor = persistStore(store);
+
+export default { store, persistor };
 

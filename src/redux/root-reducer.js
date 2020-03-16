@@ -4,15 +4,28 @@
  */
 
 import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // from here we get an actual local storage object on our window browser
+
 import userReducer from './user/user.reducer';
 import cartReducer from './cart/cart.reducer';
+
+
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['cart']
+}
+
 
 /**
  * combineReducers(): Turns an object whose values are different reducer functions, into a single reducer function.
  * It will call every child reducer, and gather their results into a single state object, 
  * whose keys correspond to the keys of the passed reducer functions.
  */
-export default combineReducers({
+const rootReducer = combineReducers({
     user: userReducer,
     cart: cartReducer
 });
+
+export default persistReducer(persistConfig, rootReducer);
