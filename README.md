@@ -66,3 +66,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Heroku Info:
+
+Heroku is a platform as a service that allows us to host our web application on a URL that they provide us for free (ofcourse depending on requirement)
+
+heroku create <app_name> --buildpack <url>
+
